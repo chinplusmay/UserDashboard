@@ -1,7 +1,6 @@
 sample video
-https://github.com/user-attachments/assets/960b7d38-39c5-4503-8d6a-5bc98ef7fb45
 
-
+https://github.com/user-attachments/assets/67a92395-0dfa-4f0c-9f93-f64bdba9aec3
 # User Dashboard Application
 
 A responsive web application built with Next.js featuring user authentication (Sign In/Sign Up) and a dashboard for viewing and editing user profiles.
