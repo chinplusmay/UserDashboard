@@ -1,0 +1,275 @@
+@import "tailwindcss";
+
+:root {
+  --bg-primary: #0a0a0a;
+  --bg-secondary: #111111;
+  --bg-card: rgba(25, 25, 25, 0.8);
+  --border-color: rgba(255, 255, 255, 0.1);
+  --text-primary: #ffffff;
+  --text-secondary: #a1a1aa;
+  --accent-cyan: #06b6d4;
+  --accent-teal: #22d3ee;
+  --accent-glow: rgba(6, 182, 212, 0.4);
+  --error: #ef4444;
+  --success: #22c55e;
+}
+
+body {
+  background-color: #0a0a0a;
+  color: white;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.page-bg {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  background: 
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(6, 182, 212, 0.15), transparent),
+    radial-gradient(ellipse 60% 40% at 100% 100%, rgba(139, 92, 246, 0.1), transparent),
+    linear-gradient(to bottom, #0a0a0a, #111111);
+}
+
+.page-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 50px 50px;
+  mask-image: radial-gradient(ellipse at center, black 20%, transparent 70%);
+  pointer-events: none;
+}
+
+.card {
+  position: relative;
+  padding: 2rem;
+  border-radius: 1rem;
+  background: rgba(17, 17, 17, 0.7);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 
+    0 0 0 1px rgba(255, 255, 255, 0.05) inset,
+    0 25px 50px -12px rgba(0, 0, 0, 0.5),
+    0 0 100px -20px rgba(6, 182, 212, 0.15);
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.02),
+    rgba(6, 182, 212, 0.1)
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  padding-right: 1rem;
+  border-radius: 0.75rem;
+  color: white;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  outline: none;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+.form-input::placeholder {
+  color: #71717a;
+}
+
+.form-input:hover {
+  border-color: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.form-input:focus {
+  border-color: var(--accent-cyan);
+  background: rgba(6, 182, 212, 0.05);
+  box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.15), 0 0 20px -5px rgba(6, 182, 212, 0.3);
+}
+
+.form-input-error {
+  border-color: var(--error) !important;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.15) !important;
+}
+
+.btn-primary {
+  width: 100%;
+  padding: 0.875rem 1.5rem;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  color: black;
+  background: linear-gradient(135deg, #06b6d4, #22d3ee, #67e8f9);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 
+    0 0 20px -5px rgba(6, 182, 212, 0.5),
+    0 10px 30px -10px rgba(6, 182, 212, 0.3);
+}
+
+.btn-primary:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 
+    0 0 30px -5px rgba(6, 182, 212, 0.7),
+    0 15px 40px -10px rgba(6, 182, 212, 0.4);
+}
+
+.btn-primary:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.btn-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn-secondary {
+  width: 100%;
+  padding: 0.875rem 1.5rem;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  color: #d4d4d8;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+.btn-secondary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.link-accent {
+  color: #22d3ee;
+  text-decoration: none;
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+.link-accent:hover {
+  color: #67e8f9;
+}
+
+.link-accent::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 1px;
+  background: linear-gradient(90deg, #06b6d4, #22d3ee);
+  transition: width 0.3s ease;
+}
+
+.link-accent:hover::after {
+  width: 100%;
+}
+
+.alert-error {
+  padding: 1rem;
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  color: #fca5a5;
+}
+
+.alert-success {
+  padding: 1rem;
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: rgba(34, 197, 94, 0.1);
+  border: 1px solid rgba(34, 197, 94, 0.2);
+  color: #86efac;
+}
+
+.profile-field {
+  padding: 1rem;
+  border-radius: 0.75rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.navbar-glass {
+  background: rgba(10, 10, 10, 0.8);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #111111;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent-cyan);
+  outline-offset: 2px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px -5px rgba(6, 182, 212, 0.5); }
+  50% { box-shadow: 0 0 30px -5px rgba(6, 182, 212, 0.7); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.shadow-glow {
+  box-shadow: 0 0 20px -5px rgba(6, 182, 212, 0.5);
+}
+
+.shadow-glow-lg {
+  box-shadow: 0 0 30px -5px rgba(6, 182, 212, 0.7);
+}
